@@ -16,9 +16,11 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity {
 
-    TextView result = findViewById(R.id.result);
+    TextView data_result;
     Button button1;
     EditText field1, field2;
     AdView adView;
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
         button1 = findViewById(R.id.button);
         adView = findViewById(R.id.adView);
+
+        data_result = findViewById(R.id.resultData);
 
         field1 = findViewById(R.id.totalStudent);
         field2 = findViewById(R.id.totalStudent2);
@@ -51,7 +55,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 rdget = new RandomGet();
-                rdget.getStudentID()
+                data_result.setText(rdget.getStudentID(Integer.parseInt(field1.getText().toString()), Integer.parseInt(field2.getText().toString())).toString());
+
+
+
+
             }
 
 
